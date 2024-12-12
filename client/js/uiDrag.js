@@ -89,8 +89,13 @@ let droppedCards = [espadas, copas, oros, bastos];
                         "x": draggingNote.style.left,
                         "y": draggingNote.style.top
                     };
-                    Connection.sendCards(cardPosition);
-// cardPositions.push(cardPosition);
+
+
+                    // IMPORTANTE: Aquí se envía la posición de la carta al servidor. Está comentada porque se envía con la posición incorrecta.
+                    //Probar la conexión con el servidor descomentando la siguiente línea
+                 
+                    //  Connection.sendCards(cardPosition);
+
                     zone.appendChild(draggingNote);
 
                     // }
