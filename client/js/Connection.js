@@ -33,25 +33,27 @@ export class Connection {
     );
   }
 
- static sendCards(cardPosition) {
-    fetch(`http://localhost:3000/cards`, {
-      method: 'POST',
-      headers: {
-      'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(cardPosition)
-    })
-      .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
+  sendCards() {
+    fetch('http://localhost:3000/api/items', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: 'Nuevo Ítem'
+        })
       })
-      .then(data => {
-      console.log('Card position sent:', data);
-      })
-      .catch(error => {
-      console.error('Error sending card position:', error);
-      });
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Ítem creado:', data);
+        })
+        .catch(error => {
+          console.error('Error al crear el ítem:', error);
+        });
   }
 }

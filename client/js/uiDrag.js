@@ -84,13 +84,12 @@ let droppedCards = [espadas, copas, oros, bastos];
                     draggingNote.style.top = `${y}px`;
 
                     const cardPosition = {
-                        id: card,
-                        suit: zone.id,
-                        x: draggingNote.style.left,
-                        y: draggingNote.style.top
+                        "id": card,
+                        "suit": zone.id,
+                        "x": draggingNote.style.left,
+                        "y": draggingNote.style.top
                     };
-                    const cardPositionJson = JSON.stringify(cardPosition);
-                    Connection.sendCards(cardPositionJson);
+                    Connection.sendCards(cardPosition);
 // cardPositions.push(cardPosition);
                     zone.appendChild(draggingNote);
 
